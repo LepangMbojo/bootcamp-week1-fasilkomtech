@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - M. Khalid Al rejeki</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills/Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Hero/Profile Section -->
+        <section id="home" class="hero-section">
+            <div class="profile-content">
+                <img src="images/corpme.JPG" alt="Foto Profil" class="profile-img">
+                <h1>M. Khalid Al Rejeki</h1>
+                <p class="tagline">Web Developer | Designer | Content Creator</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>Tentang Saya</h2>
+            <p>
+                Halo! Saya M. Khalid Al Rejeki seorang mahasiwa teknik informatika yang passionate dalam bidang teknologi dan desain. 
+                saya telah mengembangkan berbagai proyek yang menggabungkan kreativitas dengan
+                solusi teknologi modern. Saya percaya bahwa 
+                setiap masalah memiliki solusi yang elegan dan efisien jika kita mau berpikir out of the box.
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 2rem; margin-bottom: 1rem; text-align: center;">Hobi & Minat</h3>
+            <div class="hobbies-list">
+                <div class="hobby-item">🎨 Desain Grafis</div>
+                <div class="hobby-item">💻 Programming</div>
+                <div class="hobby-item">📚 Membaca</div>
+                <div class="hobby-item">🎵 Musik</div>
+                <div class="hobby-item">✈️ Traveling</div>
+            </div>
+        </section>
+
+        <!-- Skills/Interests Section -->
+        <section id="skills" class="skills-section">
+            <h2>Skills & Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🌐 Web Development</h3>
+                    <p>Menguasai HTML, CSS, JavaScript, dan framework modern seperti React dan Laravel. 
+                       Berpengalaman dalam membangun website responsif dan user-friendly.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎨 UI/UX Design</h3>
+                    <p>Mahir dalam menggunakan Figma, Adobe XD, dan Sketch untuk menciptakan desain 
+                       interface yang menarik dan intuitif dengan fokus pada user experience.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📱 Mobile Development</h3>
+                    <p>Berpengalaman dalam pengembangan aplikasi mobile menggunakan React Native dan 
+                       Flutter untuk platform iOS dan Android.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎥 Content Creation</h3>
+                    <p>Terampil dalam video editing, fotografi, dan pembuatan konten digital untuk 
+                       berbagai platform media sosial.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📊 Data Analysis</h3>
+                    <p>Mampu menganalisis data menggunakan Python, pandas, dan tools visualisasi data 
+                       untuk menghasilkan insights yang actionable.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🚀 Project Management</h3>
+                    <p>Berpengalaman dalam mengelola proyek dari konsep hingga deployment menggunakan 
+                       metodologi Agile dan tools seperti Jira dan Trello.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Hubungi Saya</h2>
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:email@example.com">halidrizki54@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <a href="https://linkedin.com/in/username" target="_blank">LinkedIn: /in/halidriski</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🐙</span>
+                    <a href="https://github.com/LepangMbojo" target="_blank">GitHub: /LepangMbojo</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <a href="https://www.instagram.com/lepangmbojo/" target="_blank">Instagram: @lepangmbojo</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 M. Khalid Al Rejeki</p>
+        <p class="footer-info">Website Portfolio - Dibuat dengan ❤️ menggunakan HTML & CSS</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Animasi fade-in saat scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
